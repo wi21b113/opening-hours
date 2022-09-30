@@ -40,6 +40,17 @@ public class OpeningHoursControllerTest {
 
     }
 
+    @Test
+    public void setClosedCorrect(){
+        OpeningHoursController os = new OpeningHoursController();
+        os.setDefaultHours();
+        os.setClose("Mo");
+        Assert.assertEquals(os.currentHours.get("Mo"),"closed");
+
+    }
+
+
+
 
 
 
