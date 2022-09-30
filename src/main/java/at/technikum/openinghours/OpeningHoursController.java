@@ -44,4 +44,11 @@ public class OpeningHoursController {
 
     }
 
+    @GetMapping("/hours/close")
+    public RedirectView setClose(@RequestParam String day){
+        currentHours.replace(day,"closed");
+        return new RedirectView("/hours");
+
+    }
+
 }
