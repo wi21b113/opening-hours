@@ -1,6 +1,8 @@
 package at.technikum.openinghours;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -33,6 +35,13 @@ public class OpeningHoursController {
         currentHours.put("So", "08:00 - 19:00");
 
         return new RedirectView("/hours");
+    }
+
+    @GetMapping("/hours/set")
+    public RedirectView setTime(@RequestParam String day, @RequestParam String open, @RequestParam String close){
+        currentHours.replace(day,open + ":00 - " + close + ":00");
+        return new RedirectView("/hours");
+
     }
 
 }

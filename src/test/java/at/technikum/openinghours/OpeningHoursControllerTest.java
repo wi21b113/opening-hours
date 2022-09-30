@@ -2,11 +2,9 @@ package at.technikum.openinghours;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 
 import java.util.LinkedHashMap;
 
-import static org.junit.Assert.*;
 
 public class OpeningHoursControllerTest {
 
@@ -32,6 +30,19 @@ public class OpeningHoursControllerTest {
         os.setDefaultHours();
         Assert.assertEquals(os.currentHours,defaultHours);
     }
+
+    @Test
+    public void setHoursCorrect(){
+        OpeningHoursController os = new OpeningHoursController();
+        os.setDefaultHours();
+        os.setTime("Mo","10","16");
+        Assert.assertEquals(os.currentHours.get("Mo"),"10:00 - 16:00");
+
+    }
+
+
+
+
 
 
 
